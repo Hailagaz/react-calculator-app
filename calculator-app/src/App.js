@@ -4,7 +4,7 @@ import Calculator from './components/Calculator';
 
 function App() {
 	return (
-		<Container maxWidth="sm" style={{ marginTop: '2rem' }}>
+		<Container maxWidth="sm" style={{ marginTop: '30vh' }}>
 			<Typography variant="h4" align="center" gutterBottom>
 				Calculator
 			</Typography>
