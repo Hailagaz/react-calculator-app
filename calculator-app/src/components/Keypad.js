@@ -2,33 +2,27 @@ import React from 'react';
 import { Grid, Button } from '@mui/material';
 
 const Keypad = ({ handleButtonClick }) => {
-	const buttonClick = (value) => {
-		handleButtonClick(value);
-	};
+	const buttons = [
+		'7', '8', '9', '+',
+		'4', '5', '6', '-',
+		'1', '2', '3', '*',
+		'AC', '0', '.', '/',
+		'=',
+	];
 
 	return (
 		<Grid container spacing={1}>
-			<Grid item xs={3}>
-				<Button variant="outlined" fullWidth onClick={() => buttonClick('7')}>
-					7
-				</Button>
-			</Grid>
-			<Grid item xs={3}>
-				<Button variant="outlined" fullWidth onClick={() => buttonClick('8')}>
-					8
-				</Button>
-			</Grid>
-			<Grid item xs={3}>
-				<Button variant="outlined" fullWidth onClick={() => buttonClick('9')}>
-					9
-				</Button>
-			</Grid>
-			<Grid item xs={3}>
-				<Button variant="outlined" fullWidth onClick={() => buttonClick('+')}>
-					+
-				</Button>
-			</Grid>
-			{/* Add more buttons for 0-9, -, *, /, . */}
+			{buttons.map((button) => (
+				<Grid item xs={3} key={button}>
+					<Button
+						variant="outlined"
+						fullWidth
+						onClick={() => handleButtonClick(button)}
+					>
+						{button}
+					</Button>
+				</Grid>
+			))}
 		</Grid>
 	);
 };

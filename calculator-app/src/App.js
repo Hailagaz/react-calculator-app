@@ -1,18 +1,15 @@
 import React from 'react';
+import { Container, Typography } from '@mui/material';
 import Calculator from './components/Calculator';
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-
-const theme = createTheme();
 
 function App() {
 	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<div className="App">
-				<Calculator />
-			</div>
-		</ThemeProvider>
+		<Container maxWidth="sm" style={{ marginTop: '2rem' }}>
+			<Typography variant="h4" align="center" gutterBottom>
+				Calculator
+			</Typography>
+			<Calculator />
+		</Container>
 	);
 }
 
