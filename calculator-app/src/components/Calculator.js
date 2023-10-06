@@ -1,4 +1,5 @@
-import React from 'react';
+// src/components/Calculator.js
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 import Keypad from './Keypad';
@@ -18,6 +19,23 @@ const Calculator = () => {
 			dispatch(setInput(value));
 		}
 	};
+
+	useEffect(() => {
+		const handleKeyPress = (event) => {
+			const keyValue = event.key;
+
+			if (keyValue.match(/[0-9+\-*/.=]|Enter|Backspace/)) {
+				event.preventDefault();
+				handleButtonClick(keyValue);
+			}
+		};
+
+		window.addEventListener('keydown', handleKeyPress);
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyPress);
+		};
+	}, []);
 
 	return (
 		<Grid container spacing={2} justifyContent="center">
